@@ -1,3 +1,5 @@
+<!doctype html>
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -17,7 +19,7 @@ chdir("received/" . $name . "_img");
 exec("convert 1.png thumbnail.jpg");
 
 $side = 175;
-for($i = 1; $i <= 16; $i++) {
+for($i = 1; $i <= 15; $i++) {
     exec("mkdir " . $i);
     for($j=1;file_exists($j . ".png"); $j++){
         $row = ceil($i / 4.0);
@@ -41,3 +43,11 @@ exec("rm *.png");
 chdir("..");
 exec("mv " . $name . "_img ../puzzles");
 ?>
+
+<html>
+    <body>
+        <script type="text/javascript">
+            window.location.href = "/";
+        </script>
+    </body>
+</html>

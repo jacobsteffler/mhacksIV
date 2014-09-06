@@ -9,12 +9,14 @@
     </head>
     
     <body>
-        <h1 class="center">Record a new puzzle:</h1>
-        <ziggeo class="center" ziggeo-width=750 ziggeo-height=750></ziggeo>
+        <h1 class="center" id="title">Record a new puzzle:</h1>
+        <ziggeo class="center" id="rec" ziggeo-width=700 ziggeo-height=700></ziggeo>
         
         <script type="text/javascript">
             ZiggeoApi.Events.on("submitted", function(data) {
                 window.location.href = "process.php?t=" + data.video.token + "&vt=" + data.video.default_stream.token;
+                document.getElementById("title").innerHTML = "Creating puzzle...please wait.";
+                document.getElementById("rec").style.display = "none";
             });
         </script>
     </body>
