@@ -12,24 +12,17 @@
     if($handle = opendir($dir)) {//See if directory exists
         while(($file = readdir($handle)) != false) {//Reads next directory in handle
             if(!in_array($file, array('.', '..')))
-                 array_push($file_names,$file);
+                 array_push($file_names, $file);
                  $i++;
         }
     }
 
     $i++;//i stores number of puzzles + + button
-
-//DEBUG
-    foreach($file_names as $name){
-       echo $name . "..................";
-    }
     
-
+    $i = count($file_names) + 1;
 
     //String html representation
-    $table= "<table width='525' cellpadding ='0' cellspacing ='0' border='0'>";
-
-
+    $table = "<table width='525' cellpadding ='0' cellspacing ='0' border='0'>";
 
     //Concatenation of tr and td elements
 
@@ -37,21 +30,18 @@
        $num_rows=($i-1)/3+1;
        $num_columns=3;
 
-//       echo "Hello World";
-
 
        for($j=1; $j<=$i;$j++){
 
 	   if($j==1){
 		   tableTag($table,"o", "r");
 		   tableTag($table,"o","c");
-		   $table .= "<a href=\"process.php\">" . "<img src= \"plus.png\">";		   
+		   $table .= "<a href=\"record.html\"><img src= \"plus.png\"></a>";		   
 	   }
 	   else{
 		   tableTag($table,"o","c");
-//		   $table .= "<a href=\"puzzle.php?t=$file_names[$j-2]\"" . "<img src= \"" . "puzzles/" . $file_names[$j-2] . "/" . "thumbnail.png\"" . ">";
-
-$table .= "<img src= \"" . "puzzles/" . $file_names[$j-2] . "/" . "thumbnail.png\"" . ">";
+//		   $table .= "<a href=\"puzzle.php?t=$file_names[$j-2]\"" . "<img src= \"" . "puzzles/" . $file_names[$j-2] . "/" . "thumbnail.jpg\"" . ">";
+$table .= "<a href=\"puzzle.php?id=" . $file_names[$j-2] . "\"><img src=\"puzzles/" . $file_names[$j-2] . "/thumbnail.jpg\"></a>";
 
 	   }
 //DEBUG
@@ -80,7 +70,7 @@ $table .= "<img src= \"" . "puzzles/" . $file_names[$j-2] . "/" . "thumbnail.png
       //row or column, open or close html tag
        function tableTag(&$tablehtml,$o_or_c, $r_or_c){
           $tablehtml .= "<" . ($o_or_c=="c" ? "/" : "");
-          $tablehtml .= "t" . ($r_or_c=="r" ? "r" : "d" . ">"); 
+          $tablehtml .= "t" . ($r_or_c=="r" ? "r>" : "d>"); 
        }
 
 

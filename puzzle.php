@@ -46,6 +46,11 @@ $id = $_GET["id"];
             var correct = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]];
             
             window.onload = function() {
+                for(count = 1; count < 500; count++) {
+                    var rand = Math.floor((Math.random() * 16) + 1);
+                    requestSwitch(rand);
+                }
+                
                 reapply();
             }
             
