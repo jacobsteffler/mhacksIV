@@ -16,7 +16,7 @@ exec("ffmpeg -i received/" . $name . ".mp4 -r 30 -f image2 received/" . $name . 
 exec("rm received/" . $name . ".mp4");
 exec("mogrify -resize 700x700! received/" . $name . "/*");
 chdir("received/" . $name);
-exec("convert 1.png -resize 150x150 thumbnail.jpg");
+exec("convert 1.png -resize 175x175 thumbnail.jpg");
 
 $side = 175;
 for($i = 1; $i <= 15; $i++) {
