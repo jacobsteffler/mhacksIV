@@ -1,5 +1,20 @@
 <!doctype html>
 <html>
+<head>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    
+    <style>
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        td {
+            padding: 10px;
+        }
+    </style>
+</head>
+    
 <body>
 
     <?php
@@ -22,7 +37,7 @@
     $i = count($file_names) + 1;
 
     //String html representation
-    $table = "<table width='525' cellpadding ='0' cellspacing ='0' border='0'>";
+    $table = "<table>";
 
     //Concatenation of tr and td elements
 

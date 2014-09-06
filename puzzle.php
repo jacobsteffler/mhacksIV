@@ -6,11 +6,27 @@ $id = $_GET["id"];
 
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="puzzle.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        
+        <style>
+            table, button {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            table, td {
+                margin-left: auto;
+                margin-right: auto;
+                border-collapse: collapse;
+                border: none;
+                padding: 0;
+                margin: 0;
+                line-height: 0;
+            }
+        </style>
     </head>
     
     <body>
-        <div class="puzzle">
             <table id="table">
                 <tr>
                     <td><div id="1"><img width="175" height="175" src=<?php echo("\"puzzles/" . $id . "/1.gif\""); ?> ></div></td>
@@ -39,7 +55,6 @@ $id = $_GET["id"];
             </table>
             
             <h1 id="winner"></h1>
-        </div>
         
         <script type="text/javascript">
             var tiles = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]];
