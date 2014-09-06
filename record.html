@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="record.css">
+        
+        <link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+        <script src="//assets.ziggeo.com/js/ziggeo-jquery-json2-betajs-player.min.js"></script>
+        <script>ZiggeoApi.token = "3ed818d9203c4a5b815fb691d8d0a311";</script>
+    </head>
+    
+    <body>
+        <h1 class="center">Record a new puzzle:</h1>
+        <ziggeo class="center" ziggeo-width=750 ziggeo-height=750></ziggeo>
+        
+        <script type="text/javascript">
+            ZiggeoApi.Events.on("submitted", function(data) {
+                window.location.href = "process.php?t=" + data.video.token + "&vt=" + data.video.default_stream.token;
+            });
+        </script>
+    </body>
+</html>
