@@ -49,7 +49,10 @@
 	   }
 	   else{
 		   tableTag($table,"o","c");
-		   $table .= "<img src= \"" . "puzzles/" . $file_names[$j-2] . "/" . "thumbnail.png\"" . ">";
+//		   $table .= "<a href=\"puzzle.php?t=$file_names[$j-2]\"" . "<img src= \"" . "puzzles/" . $file_names[$j-2] . "/" . "thumbnail.png\"" . ">";
+
+$table .= "<img src= \"" . "puzzles/" . $file_names[$j-2] . "/" . "thumbnail.png\"" . ">";
+
 	   }
 //DEBUG
 
