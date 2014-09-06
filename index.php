@@ -23,26 +23,28 @@
        $num_rows=(i-1)/3+1
        $num_columns=3
 
+       for($j=1; j<=i;++j){
+	   if(j==1){
+		   tableTag(table,o, r);
+		   table .= <Element with plus.png>
+		   tableTag(table,c,r)
+	   }
+
+	}
 
 
-       table =table . "<tr><td> plus.png </td>"
-       //Now add two more thumbnails via file_names array
-       if($i==2){//Only one puzzle available
-          table= table . " <td> " . $file_names[0] . "\thumbnail.jpg" . "</td>";
+       table .= "</table>"
+       //Display the table
+       echo $table;
        
-       //Place holder for 3rd column
-          table .= "<td> ". placeholder . "</td>";
-          table .= table . "</tr>"
+
+      //row or column, open or close html tag
+       function tableTag(&$tablehtml,$o_or_c, $r_or_c){
+          $tablehtml .= "<" . o_or_c=="c" ? "/" : "";
+          $tablehtml .= "t" . r_or_c=="r" ? "r" : "d" . ">"; 
        }
 
-       else{ //i is 3 or greater
-       
 
-
-       }
-
-
-    
     ?>
     
     
