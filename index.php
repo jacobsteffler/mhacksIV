@@ -19,8 +19,11 @@
 
     $i++;//i stores number of puzzles + + button
 
+//DEBUG
+    foreach($file_names as $name){
+       echo $name . "..................";
+    }
     
-
 
 
     //String html representation
@@ -34,7 +37,7 @@
        $num_rows=($i-1)/3+1;
        $num_columns=3;
 
-       echo "Hello World";
+//       echo "Hello World";
 
 
        for($j=1; $j<=$i;$j++){
@@ -46,9 +49,9 @@
 	   }
 	   else{
 		   tableTag($table,"o","c");
-		   $table .= "<img src= \"" . "puzzles/" . $file_names[j-2] . "/" . "thumbnail.png\"" . ">";
+		   $table .= "<img src= \"" . "puzzles/" . $file_names[$j-2] . "/" . "thumbnail.png\"" . ">";
 	   }
-
+//DEBUG
 
 	   tableTag($table,"c","c");
 
