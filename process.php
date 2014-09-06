@@ -11,11 +11,11 @@ $name = $_GET["t"];
 file_put_contents("received/" . $name . ".mp4", $ziggeo->streams()->download_video($_GET["t"], $_GET["vt"]));
 $ziggeo->videos()->delete($_GET["t"]);
 
-exec("mkdir received/" . $name . "_img");
-exec("ffmpeg -i received/" . $name . ".mp4 -r 30 -f image2 received/" . $name . "_img/%0d.png");
+exec("mkdir received/" . $name);
+exec("ffmpeg -i received/" . $name . ".mp4 -r 30 -f image2 received/" . $name . "/%0d.png");
 exec("rm received/" . $name . ".mp4");
-exec("mogrify -resize 700x700! received/" . $name . "_img/*");
-chdir("received/" . $name . "_img");
+exec("mogrify -resize 700x700! received/" . $name . "/*");
+chdir("received/" . $name);
 exec("convert 1.png thumbnail.jpg");
 
 $side = 175;
@@ -41,7 +41,7 @@ for($i = 1; $i <= 15; $i++) {
 
 exec("rm *.png");
 chdir("..");
-exec("mv " . $name . "_img ../puzzles");
+exec("mv " . $name . " ../puzzles");
 ?>
 
 <html>
