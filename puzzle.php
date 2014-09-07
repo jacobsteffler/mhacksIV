@@ -103,6 +103,7 @@ $id = $_GET["id"];
 //            var start_time =new Date();
             var sec;
             var interval = setInterval(setTime, 1000);
+            var winTime = "-1";
 
             window.onload = function() {
                 ready = false;
@@ -112,6 +113,7 @@ $id = $_GET["id"];
                     var rand = Math.floor((Math.random() * 16) + 1);
                     requestSwitch(rand);
                 }
+                
                 ready = true;
                 
                 reapply();
@@ -202,7 +204,9 @@ $id = $_GET["id"];
                 }
                 
                 if(match() && ready) {
-                    var winTime = document.getElementById("stop-watch").innerHTML;
+                    if(winTime == "-1") {
+                        winTime = document.getElementById("stop-watch").innerHTML;
+                    }
                     
                     clearInterval(interval);
                     new Audio("zelda_treasurechest.mp3").play();
