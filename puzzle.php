@@ -75,11 +75,15 @@ $id = $_GET["id"];
             var tiles = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]];
             var correct = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]];
             
+            var ready;
+            
             window.onload = function() {
+                ready = false;
                 for(count = 1; count < 500; count++) {
                     var rand = Math.floor((Math.random() * 16) + 1);
                     requestSwitch(rand);
                 }
+                ready = true;
                 
                 reapply();
             }
@@ -148,10 +152,8 @@ $id = $_GET["id"];
                     switchCells(cellIndex(location[0], location[1]), cellIndex(location[0], location[1] + 1));
                 }
                 
-                if(match()) {
+                if(match() && ready) {
                     alert("Congratulations! You won.");
-                } else {
-                    
                 }
             }
             
