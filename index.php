@@ -11,7 +11,7 @@
         #title {
             text-align: center;
             color: white;
-            font-size: 3em;
+            font-size: 250%;
             background: #70a8e7;
             font-family: "Arial Black", Gadget, sans-serif;
         }
