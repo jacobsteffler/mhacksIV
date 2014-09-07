@@ -7,6 +7,7 @@ $id = $_GET["id"];
 <html>
     <head>
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <title>GIF Sliding Puzzle</title>
         
         <style>
             html {
@@ -52,20 +53,14 @@ $id = $_GET["id"];
             }
 
 	    #stop-watch{
-	        border : 3px solid red;
 	        font   : "Times New Roman";
-	        
+	        margin-top: 100px;
+            text-align: center;
 	    }
         </style>
     </head>
 
-//STOPWATCH    
-   <script type="text/javascript">
-     
-
-   <\script>
-
-    <body onload=stopwatch()>
+    <body>
         <div id="cent">
             <table id="table">
                 <tr>
@@ -98,15 +93,21 @@ $id = $_GET["id"];
             <a class="pure-button" id="del" href="delete.php?id=<?php echo($id); ?>">Delete this puzzle</a>
         </div>
         
+        <h2 id="stop-watch">00:00</h2>
+        
         <script type="text/javascript">
             var tiles = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]];
             var correct = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]];
             
             var ready;
 //            var start_time =new Date();
+            var sec;
+            var interval = setInterval(setTime, 1000);
 
             window.onload = function() {
                 ready = false;
+                sec = 0;
+                
                 for(count = 1; count < 500; count++) {
                     var rand = Math.floor((Math.random() * 16) + 1);
                     requestSwitch(rand);
@@ -114,6 +115,26 @@ $id = $_GET["id"];
                 ready = true;
                 
                 reapply();
+            }
+            
+            function setTime() {
+                sec++;
+                var minutes = Math.floor(sec / 60);
+                
+                document.getElementById("stop-watch").innerHTML = pad(minutes) + ":" + pad(sec % 60);
+            }
+            
+            function pad(val)
+            {
+                var valString = val + "";
+                if(valString.length < 2)
+                {
+                    return "0" + valString;
+                }
+                else
+                {
+                    return valString;
+                }
             }
             
             function findIndex(number) {
@@ -181,9 +202,12 @@ $id = $_GET["id"];
                 }
                 
                 if(match() && ready) {
-//		    var end_time=new Date();
+                    var winTime = document.getElementById("stop-watch").innerHTML;
+                    
+                    clearInterval(interval);
                     new Audio("zelda_treasurechest.mp3").play();
                     alert("Congratulations! You won.");
+                    document.getElementById("stop-watch").innerHTML = "<a href=\"http://twitter.com/home?status=I scored a time of " + winTime + " in GIF Sliding Puzzle! %23MHacks\">Tweet your time of " + winTime + "</a>";
                 }
             }
             
@@ -279,10 +303,6 @@ $id = $_GET["id"];
                 }
             }
         </script>
-	
-	//Create visual stopwatch display. Use CSS to stylize it with a border
-	<h2 id="stop-watch"> 00.00.00<\h2>
-
 
     </body>
 </html>

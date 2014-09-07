@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <title>GIF Sliding Puzzle</title>
     
     <style>
         html {
@@ -43,7 +44,7 @@
 </head>
     
 <body>
-    <h1 id="title">GIF PUZZLE MAKER</h1>
+    <h1 id="title">GIF SLIDING PUZZLE</h1>
 
     <?php
 
@@ -122,7 +123,7 @@ $table .= "<a href=\"puzzle.php?id=" . $file_names[$j-2] . "\"><img src=\"puzzle
 
     ?>
 
-    <p id="instructions">Take a 5-10 second video of your surroundings. Then solve an animated <a href= "http://en.wikipedia.org/wiki/15_puzzle"> 15 puzzle </a> constructed from the frames of your video.
+    <p id="instructions">Take a 5-10 second video of your surroundings. Then solve an animated <a href= "http://en.wikipedia.org/wiki/15_puzzle"> 15 puzzle</a> constructed from the frames of your video.
     </p>
     
     
