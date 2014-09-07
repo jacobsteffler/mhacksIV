@@ -9,11 +9,20 @@ $id = $_GET["id"];
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
         
         <style>
+            html {
+                min-height: 100%;
+            }
+            
             #cent {
                 width: 700px;
                 height: 700px;
                 margin-left: auto;
                 margin-right: auto;
+            }
+            
+            body {
+                margin-top: 10px;
+                background: url("bg.png") repeat-x left bottom;
             }
             
             a {
