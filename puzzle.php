@@ -17,10 +17,15 @@ $id = $_GET["id"];
             }
             
             a {
-                width: 100%;
+                width: 45%;
                 margin-top: 20px;
                 margin-left: auto;
                 margin-right: auto;
+            }
+            
+            #del {
+                color: white;
+                background: rgb(202, 60, 60);
             }
             
             table {
@@ -69,6 +74,7 @@ $id = $_GET["id"];
             </table>
             
             <a class="pure-button pure-button-primary" href="/">Return to puzzles</a>
+            <a class="pure-button" id="del" href="delete.php?id=<?php echo($id); ?>">Delete this puzzle</a>
         </div>
         
         <script type="text/javascript">
