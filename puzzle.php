@@ -41,10 +41,22 @@ $id = $_GET["id"];
                 margin: 0;
                 line-height: 0;
             }
+
+	    #stop-watch{
+	        border : 3px solid red;
+	        font   : "Times New Roman";
+	        
+	    }
         </style>
     </head>
-    
-    <body>
+
+//STOPWATCH    
+   <script type="text/javascript">
+     
+
+   <\script>
+
+    <body onload=stopwatch()>
         <div id="cent">
             <table id="table">
                 <tr>
@@ -82,7 +94,8 @@ $id = $_GET["id"];
             var correct = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]];
             
             var ready;
-            
+//            var start_time =new Date();
+
             window.onload = function() {
                 ready = false;
                 for(count = 1; count < 500; count++) {
@@ -159,6 +172,7 @@ $id = $_GET["id"];
                 }
                 
                 if(match() && ready) {
+//		    var end_time=new Date();
                     new Audio("zelda_treasurechest.mp3").play();
                     alert("Congratulations! You won.");
                 }
@@ -256,5 +270,10 @@ $id = $_GET["id"];
                 }
             }
         </script>
+	
+	//Create visual stopwatch display. Use CSS to stylize it with a border
+	<h2 id="stop-watch"> 00.00.00<\h2>
+
+
     </body>
 </html>
