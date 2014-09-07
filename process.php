@@ -1,9 +1,6 @@
 <!doctype html>
 
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 require_once('Ziggeo.php');
 $ziggeo = new Ziggeo('3ed818d9203c4a5b815fb691d8d0a311', 'e4669e432a755c096b4c8dca52b9d105', 'ecc4b8c297b93d82b1417a070f64eb22');
 
