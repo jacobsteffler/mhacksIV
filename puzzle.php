@@ -102,7 +102,7 @@ $id = $_GET["id"];
             var ready;
 //            var start_time =new Date();
             var sec;
-            var interval = setInterval(setTime, 1000);
+            var interval;
             var winTime = "-1";
 
             window.onload = function() {
@@ -115,6 +115,7 @@ $id = $_GET["id"];
                 }
                 
                 ready = true;
+                interval = setInterval(setTime, 1000);
                 
                 reapply();
             }
