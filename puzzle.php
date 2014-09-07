@@ -9,14 +9,27 @@ $id = $_GET["id"];
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
         
         <style>
-            table, button {
+            #cent {
+                width: 700px;
+                height: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            a {
+                width: 100%;
+                margin-top: 20px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            table {
+                margin: 0 auto;
                 margin-left: auto;
                 margin-right: auto;
             }
             
             table, td {
-                margin-left: auto;
-                margin-right: auto;
                 border-collapse: collapse;
                 border: none;
                 padding: 0;
@@ -27,6 +40,7 @@ $id = $_GET["id"];
     </head>
     
     <body>
+        <div id="cent">
             <table id="table">
                 <tr>
                     <td><div id="1"><img width="175" height="175" src=<?php echo("\"puzzles/" . $id . "/1.gif\""); ?> ></div></td>
@@ -54,7 +68,8 @@ $id = $_GET["id"];
                 </tr>
             </table>
             
-            <h1 id="winner"></h1>
+            <a class="pure-button pure-button-primary" href="/">Return to puzzles</a>
+        </div>
         
         <script type="text/javascript">
             var tiles = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]];
@@ -134,9 +149,9 @@ $id = $_GET["id"];
                 }
                 
                 if(match()) {
-                    document.getElementById("winner").innerHTML = "You win!";
+                    alert("Congratulations! You won.");
                 } else {
-                    document.getElementById("winner").innerHTML = "";
+                    
                 }
             }
             
