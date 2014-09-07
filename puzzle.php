@@ -153,6 +153,7 @@ $id = $_GET["id"];
                 }
                 
                 if(match() && ready) {
+                    new Audio("zelda_treasurechest.mp3").play();
                     alert("Congratulations! You won.");
                 }
             }
